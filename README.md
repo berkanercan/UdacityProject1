@@ -13,3 +13,21 @@ My Pipeline consists of 6 steps.
     * [140, 540], [450, 325], [510, 325], [910,540]
 5. Call _hough_lines_ function to detect the lines in the masked area.
 6. Call _weighted_img_ function to combine the lines and the original image.
+
+# draw_lines() modification
+The draw_lines function, which is called inside hough_lines function is modified as follows;
+
+1. Initialize global variables for highest and lowest points of detected lines. (For both sides)
+2. Iterate through all lines. For each line;
+     * Calculate the slope
+     * If the slope is negative, classify that line as a part of the left line. If the slope is positive, it belongs to the right line
+     * Compare coordinates of the line with the global variables and update them if necessary.
+         * Example: if lowest _x_ coordinate of the line is smaller than _left_min_x_, set _left_min_x_ = _x_
+3. After finding min and max points for both lines, extrapolate the lines to cover the entire lane.
+     * For both lines, calcualte the slope and _b_ value to get the linear equation that is passing through our min and max points.
+     * Using _y = mx + b_,  find the _x_ value for _y = 540_ (max y value)
+         * For left line, update _left_min_x_ with that _x_ value
+         * For right line, update _right_max_x with that _x_ value
+4. Call the line drawing function with the points calculated.
+         
+
