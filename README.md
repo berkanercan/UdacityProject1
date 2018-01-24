@@ -30,4 +30,7 @@ The draw_lines function, which is called inside hough_lines function is modified
          * For right line, update _right_max_x with that _x_ value
 4. Call the line drawing function with the points calculated.
          
+# Potential Shortcomings of my pipeline
+The most obvious shortcoming of my pipeline is that the parameters are fine-tuned by trial&error and thus hardcoded. The mask points that I am using are calculated w.r.t. the example images provided. It will fail for the cases where there is a wider lane or a curled one. 
 
+Moreover, shadows and minor white dots in between the lanes can be detected as lines as well. It can be avoided by tuning the parametes of hough_lines function. However, it should not be hardcoded. I guess we are going to use machine learning to tune those parameters in the future.
