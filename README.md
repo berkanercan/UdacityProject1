@@ -38,6 +38,6 @@ The most obvious shortcoming of my pipeline is that the parameters are fine-tune
 Moreover, shadows and minor white dots in between the lanes can be detected as lines as well. It can be avoided by tuning the parametes of hough_lines function. However, it should not be hardcoded. I guess we are going to use machine learning to tune those parameters in the future.
 
 # Possible improvements to my pipeline
-One possible improvement would be to make make continuous line more stable. At the moment they are vibrating and not as smooth as the ones that are in the example output video. 
+One possible improvement would be to make continuous lines more stable. At the moment they are vibrating and not as smooth as the ones that are in the example output video. 
 
-Another improvement would be to elimeinate the occasional wrong drawn lines. When My algorithm cannot find a line on the upper most corner of the mask, it draws the lane with a wrong slope. 
+Another improvement would be to eliminate the occasional wrong drawn lines. When my algorithm cannot find a line on the upper most corner of the mask, it draws the lane with a wrong slope. 
